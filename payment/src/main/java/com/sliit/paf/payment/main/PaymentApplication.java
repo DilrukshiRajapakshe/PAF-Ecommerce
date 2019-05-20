@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration(exclude = { //
         DataSourceAutoConfiguration.class, //
         DataSourceTransactionManagerAutoConfiguration.class, //
-        HibernateJpaAutoConfiguration.class })
+        HibernateJpaAutoConfiguration.class})
 @ComponentScan("com.sliit.paf.payment")
 public class PaymentApplication {
 

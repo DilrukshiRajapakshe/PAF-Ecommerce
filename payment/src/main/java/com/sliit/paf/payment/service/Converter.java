@@ -16,10 +16,10 @@ public class Converter {
         if (entity instanceof Payment) {
             Payment p = (Payment) entity;
             return (T) new PaymentDTO(p.getId(), p.getDate(), p.getCustomerId());
-        }else if (entity instanceof OrderDetail) {
+        } else if (entity instanceof OrderDetail) {
             OrderDetail o = (OrderDetail) entity;
-            return (T) new OrderDetailDTO(o.getOrderId(), o.getItemCode(), o.getQty(),o.getUnitPrice());
-        }else {
+            return (T) new OrderDetailDTO(o.getOrderId(), o.getItemCode(), o.getQty(), o.getUnitPrice());
+        } else {
             throw new RuntimeException("This entity can't be converted to a DTO");
         }
     }
@@ -28,10 +28,10 @@ public class Converter {
         if (dto instanceof PaymentDTO) {
             PaymentDTO p = (PaymentDTO) dto;
             return (T) new Payment(p.getId(), p.getDate(), p.getCustomerId());
-        }else if (dto instanceof OrderDetailDTO) {
+        } else if (dto instanceof OrderDetailDTO) {
             OrderDetailDTO o = (OrderDetailDTO) dto;
-            return (T) new OrderDetail(o.getOrderId(), o.getItemCode(), o.getQty(),o.getUnitPrice());
-        }else {
+            return (T) new OrderDetail(o.getOrderId(), o.getItemCode(), o.getQty(), o.getUnitPrice());
+        } else {
             throw new RuntimeException("This DTO can't be converted to an entity");
         }
     }

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class OrderDetail extends SuperEntity{
+public class OrderDetail extends SuperEntity {
     @Id
     private String orderId;
     private String itemCode;

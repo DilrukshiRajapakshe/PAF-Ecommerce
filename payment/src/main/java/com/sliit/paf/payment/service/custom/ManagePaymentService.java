@@ -13,7 +13,7 @@ public interface ManagePaymentService extends SuperService {
 
     void updatePayment(PaymentDTO dto);
 
-    void deletePayment(String odrerID) ;
+    void deletePayment(String odrerID);
 
     PaymentDTO findPayment(String id);
 
