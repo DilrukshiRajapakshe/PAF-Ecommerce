@@ -17,4 +17,6 @@ public interface ManagePaymentService extends SuperService {
 
     PaymentDTO findPayment(String id);
 
+    List<PaymentDTO> findEachPayment(String cid);
+
 }

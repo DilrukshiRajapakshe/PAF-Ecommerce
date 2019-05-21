@@ -18,4 +18,6 @@ public interface CrudRepository<T extends SuperEntity, ID extends Serializable> 
 
     void delete(ID key);
 
+    Optional<List<T>> findEach(String cid);
+
 }

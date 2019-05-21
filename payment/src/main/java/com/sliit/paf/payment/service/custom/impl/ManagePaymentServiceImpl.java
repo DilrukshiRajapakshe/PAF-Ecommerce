@@ -2,6 +2,7 @@ package com.sliit.paf.payment.service.custom.impl;
 
 import com.sliit.paf.payment.dto.PaymentDTO;
 import com.sliit.paf.payment.repository.custom.OrderRepository;
+import com.sliit.paf.payment.repository.custom.PaymentRepository;
 import com.sliit.paf.payment.service.Converter;
 import com.sliit.paf.payment.service.custom.ManagePaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +15,18 @@ import java.util.List;
 @Transactional
 public class ManagePaymentServiceImpl implements ManagePaymentService {
 
-    private OrderRepository paymentDAO;
+    private PaymentRepository paymentDAO;
 
     @Autowired
-    public ManagePaymentServiceImpl(OrderRepository customerDAO) {
+    public ManagePaymentServiceImpl(PaymentRepository customerDAO) {
         this.paymentDAO = customerDAO;
     }
 
     @Transactional(readOnly = true)
     public List<PaymentDTO> getPayments(){
 
-         paymentDAO.findAll().map(Converter::<PaymentDTO>getDTOList).get();
-        return null;
+        return paymentDAO.findAll().map(Converter::<PaymentDTO>getDTOList).get();
+
     }
 
     public void createPayment(PaymentDTO dto) {
@@ -43,6 +44,11 @@ public class ManagePaymentServiceImpl implements ManagePaymentService {
 
     public PaymentDTO findPayment(String id){
         return paymentDAO.find(id).map(Converter::<PaymentDTO>getDTO).orElse(null);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PaymentDTO> findEachPayment(String cid) {
+        return paymentDAO.findEach(cid).map(Converter::<PaymentDTO>getDTOList).get();
     }
 
 }

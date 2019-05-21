@@ -1,8 +1,6 @@
 package com.sliit.paf.payment.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class OrderDetail extends SuperEntity{

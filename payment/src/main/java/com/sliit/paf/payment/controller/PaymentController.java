@@ -13,49 +13,59 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api/v1/customers")
+@RequestMapping("api/v1/payment")
 public class PaymentController {
 
     @Autowired
     private ManagePaymentService paymentService;
 
     @GetMapping
-    public ResponseEntity<List<PaymentDTO>> findAllCustomers(){
+    public ResponseEntity<List<PaymentDTO>> findAllpayment(){
         System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
-        List<PaymentDTO> customers = paymentService.getPayments();
+        List<PaymentDTO> payment = paymentService.getPayments();
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("X-Count",customers.size() + "");
-        System.out.println(customers);
-        return new ResponseEntity<List<PaymentDTO>>(customers,httpHeaders, HttpStatus.OK);
+        httpHeaders.add("X-Count",payment.size() + "");
+        System.out.println(payment);
+        return new ResponseEntity<List<PaymentDTO>>(payment,httpHeaders, HttpStatus.OK);
     }
 
-    @GetMapping("/{id:C\\d{3}}")
-    public PaymentDTO findCustomer(@PathVariable("id") String cId){
-        PaymentDTO customer = paymentService.findPayment(cId);
-        return customer;
+    @GetMapping("/{id:P\\d{3}}")
+    public PaymentDTO findpayment(@PathVariable("id") String cId){
+        PaymentDTO payment = paymentService.findPayment(cId);
+        return payment;
     }
 
-    @DeleteMapping("/{id:C\\d{3}}")
+    @DeleteMapping("/{id:P\\d{3}}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteCustomer(@PathVariable("id") String cId){
+    public void deletepayment(@PathVariable("id") String cId){
         paymentService.deletePayment(cId);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public String saveCustomer(@RequestBody PaymentDTO customerDTO){
-        paymentService.createPayment(customerDTO);
-        return customerDTO.getId();
+    public String savepayment(@RequestBody PaymentDTO paymentDTO){
+        paymentService.createPayment(paymentDTO);
+        return paymentDTO.getId();
     }
 
-    @PutMapping(value = "/{id:C\\d{3}}",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updateCustomer(@PathVariable("id") String cId, @RequestBody PaymentDTO paymentDTO){
+    @PutMapping(value = "/{id:P\\d{3}}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updatepaymentDTO(@PathVariable("id") String cId, @RequestBody PaymentDTO paymentDTO){
        if (cId.equals(paymentDTO.getId())){
            paymentService.updatePayment(paymentDTO);
            return new ResponseEntity(HttpStatus.OK);
        }else {
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }
+    }
+
+    @GetMapping("/{id:C\\d{3}}")
+    public ResponseEntity<List<PaymentDTO>> findpaymentForEachPerson(@PathVariable("id") String cId){
+        System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
+        List<PaymentDTO> payment = paymentService.findEachPayment(cId);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("X-Count",payment.size() + "");
+        System.out.println(payment);
+        return new ResponseEntity<List<PaymentDTO>>(payment,httpHeaders, HttpStatus.OK);
     }
 
 }
