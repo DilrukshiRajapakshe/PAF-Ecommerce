@@ -1,6 +1,8 @@
-package com.sliit.paf.payment.repository;
+package com.sliit.paf.registation.repositroy;
 
-import com.sliit.paf.payment.entity.SuperEntity;
+
+
+import com.sliit.paf.registation.entity.SuperEntity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +19,5 @@ public interface CrudRepository<T extends SuperEntity, ID extends Serializable> 
     void update(T entity);
 
     void delete(ID key);
-
-    Optional<List<T>> findEach(String cid);
 
 }

@@ -17,43 +17,43 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private ManageOrderService orderService;
+    private ManageOrderService manageOrderService;
 
     @GetMapping
-    public ResponseEntity<List<OrderDetailDTO>> findAllOrders() {
+    public ResponseEntity<List<OrderDetailDTO>> findAllOrders(){
         System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
-        List<OrderDetailDTO> customers = orderService.getOrderDetails();
+        List<OrderDetailDTO> orders = manageOrderService.getOrderDetails();
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("X-Count", customers.size() + "");
-        System.out.println(customers);
-        return new ResponseEntity<List<OrderDetailDTO>>(customers, httpHeaders, HttpStatus.OK);
+        httpHeaders.add("X-Count",orders.size() + "");
+        System.out.println(orders);
+        return new ResponseEntity<List<OrderDetailDTO>>(orders,httpHeaders, HttpStatus.OK);
     }
 
-    @GetMapping("/{id:C\\d{3}}")
-    public OrderDetailDTO findOrders(@PathVariable("id") String cId) {
-        OrderDetailDTO customer = orderService.findOrderDetail(cId);
-        return customer;
+    @GetMapping("/{id:O\\d{3}}")
+    public OrderDetailDTO findOrders(@PathVariable("id") String cId){
+        OrderDetailDTO orderDetail = manageOrderService.findOrderDetail(cId);
+        return orderDetail;
     }
 
-    @DeleteMapping("/{id:C\\d{3}}")
+    @DeleteMapping("/{id:O\\d{3}}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteOrders(@PathVariable("id") String cId) {
-        orderService.deleteOrderDetail(cId);
+    public void deleteOrders(@PathVariable("id") String cId){
+        manageOrderService.deleteOrderDetail(cId);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public String saveCustomer(@RequestBody OrderDetailDTO customerDTO) {
-        orderService.createOrderDetail(customerDTO);
-        return customerDTO.getOrderId();
+    public String saveOrders(@RequestBody OrderDetailDTO orderDetailDTO){
+        manageOrderService.createOrderDetail(orderDetailDTO);
+        return orderDetailDTO.getOrderId();
     }
 
-    @PutMapping(value = "/{id:C\\d{3}}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updateOrders(@PathVariable("id") String cId, @RequestBody OrderDetailDTO orderDTO) {
-        if (cId.equals(orderDTO.getOrderId())) {
-            orderService.updateOrderDetail(orderDTO);
+    @PutMapping(value = "/{id:O\\d{3}}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateOrders(@PathVariable("id") String cId, @RequestBody OrderDetailDTO orderDetailDTO){
+        if (cId.equals(orderDetailDTO.getOrderId())){
+            manageOrderService.updateOrderDetail(orderDetailDTO);
             return new ResponseEntity(HttpStatus.OK);
-        } else {
+        }else {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }

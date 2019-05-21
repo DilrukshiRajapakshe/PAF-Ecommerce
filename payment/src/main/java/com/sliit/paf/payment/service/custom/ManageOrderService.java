@@ -1,7 +1,6 @@
 package com.sliit.paf.payment.service.custom;
 
 import com.sliit.paf.payment.dto.OrderDetailDTO;
-import com.sliit.paf.payment.dto.PaymentDTO;
 import com.sliit.paf.payment.service.SuperService;
 
 import java.util.List;
