@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentDTO extends SuperDTO{
+public class PaymentDTO extends SuperDTO {
 
     private String id;
     private Date date;

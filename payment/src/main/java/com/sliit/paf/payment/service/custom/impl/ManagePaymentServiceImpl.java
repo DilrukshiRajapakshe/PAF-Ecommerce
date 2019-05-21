@@ -23,10 +23,15 @@ public class ManagePaymentServiceImpl implements ManagePaymentService {
     }
 
     @Transactional(readOnly = true)
-    public List<PaymentDTO> getPayments(){
+    public List<PaymentDTO> getPayments() {
 
+<<<<<<< HEAD
         return paymentDAO.findAll().map(Converter::<PaymentDTO>getDTOList).get();
 
+=======
+        paymentDAO.findAll().map(Converter::<PaymentDTO>getDTOList).get();
+        return null;
+>>>>>>> 5c35b5fc327969351e322200788d774367c82e28
     }
 
     public void createPayment(PaymentDTO dto) {
@@ -42,7 +47,7 @@ public class ManagePaymentServiceImpl implements ManagePaymentService {
         paymentDAO.delete(odrerID);
     }
 
-    public PaymentDTO findPayment(String id){
+    public PaymentDTO findPayment(String id) {
         return paymentDAO.find(id).map(Converter::<PaymentDTO>getDTO).orElse(null);
     }
 

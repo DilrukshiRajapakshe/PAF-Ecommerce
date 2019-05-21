@@ -22,9 +22,13 @@ public class ManageOrderServiceImpl implements ManageOrderService {
     }
 
     @Transactional(readOnly = true)
-    public List<OrderDetailDTO> getOrderDetails(){ return orderDetailDAO.findAll().map(Converter::<OrderDetailDTO>getDTOList).get(); }
+    public List<OrderDetailDTO> getOrderDetails() {
+        return orderDetailDAO.findAll().map(Converter::<OrderDetailDTO>getDTOList).get();
+    }
 
-    public void createOrderDetail(OrderDetailDTO dto) { orderDetailDAO.save(Converter.getEntity(dto)); }
+    public void createOrderDetail(OrderDetailDTO dto) {
+        orderDetailDAO.save(Converter.getEntity(dto));
+    }
 
     public void updateOrderDetail(OrderDetailDTO dto) {
         orderDetailDAO.update(Converter.getEntity(dto));
@@ -34,6 +38,8 @@ public class ManageOrderServiceImpl implements ManageOrderService {
         orderDetailDAO.delete(orderID);
     }
 
-    public OrderDetailDTO findOrderDetail(String orderID){ return orderDetailDAO.find(orderID).map(Converter::<OrderDetailDTO>getDTO).orElse(null); }
+    public OrderDetailDTO findOrderDetail(String orderID) {
+        return orderDetailDAO.find(orderID).map(Converter::<OrderDetailDTO>getDTO).orElse(null);
+    }
 
 }

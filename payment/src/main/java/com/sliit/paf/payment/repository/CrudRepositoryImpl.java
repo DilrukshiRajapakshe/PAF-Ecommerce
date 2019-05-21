@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Optional;
+
 //class Child extends Parent implements Serializable. It implies that the class can be serialized and it's state can be stored on to the disk in a file. when we extend a class that implements serializable we need not specify it again
 public abstract class CrudRepositoryImpl<T extends SuperEntity, ID extends Serializable> implements CrudRepository<T,ID> {
 

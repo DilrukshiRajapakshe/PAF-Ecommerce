@@ -1,6 +1,12 @@
 package com.sliit.paf.payment.dto;
 
+<<<<<<< HEAD
 public class OrderDetailDTO extends SuperDTO{
+=======
+import java.time.LocalDate;
+
+public class OrderDetailDTO extends SuperDTO {
+>>>>>>> 5c35b5fc327969351e322200788d774367c82e28
 
     private String orderId;
     private String itemCode;

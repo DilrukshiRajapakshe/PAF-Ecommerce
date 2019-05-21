@@ -3,7 +3,7 @@ package com.sliit.paf.payment.entity;
 import javax.persistence.*;
 
 @Entity
-public class OrderDetail extends SuperEntity{
+public class OrderDetail extends SuperEntity {
     @Id
     private String orderId;
     private String itemCode;

@@ -3,6 +3,7 @@ package com.sliit.paf.payment.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Date;
+
 @Entity
 public class Payment extends SuperEntity {
     @Id
