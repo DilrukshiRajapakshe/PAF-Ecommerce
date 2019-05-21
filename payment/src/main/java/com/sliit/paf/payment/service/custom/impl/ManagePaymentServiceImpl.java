@@ -24,14 +24,7 @@ public class ManagePaymentServiceImpl implements ManagePaymentService {
 
     @Transactional(readOnly = true)
     public List<PaymentDTO> getPayments() {
-
-<<<<<<< HEAD
         return paymentDAO.findAll().map(Converter::<PaymentDTO>getDTOList).get();
-
-=======
-        paymentDAO.findAll().map(Converter::<PaymentDTO>getDTOList).get();
-        return null;
->>>>>>> 5c35b5fc327969351e322200788d774367c82e28
     }
 
     public void createPayment(PaymentDTO dto) {
