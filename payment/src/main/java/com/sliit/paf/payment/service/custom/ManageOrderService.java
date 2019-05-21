@@ -17,5 +17,5 @@ public interface ManageOrderService extends SuperService {
 
     OrderDetailDTO findOrderDetail(String orderID);
 
-
+    List<OrderDetailDTO> findEachOrder(String orderId);
 }

@@ -42,4 +42,8 @@ public class ManageOrderServiceImpl implements ManageOrderService {
         return orderDetailDAO.find(orderID).map(Converter::<OrderDetailDTO>getDTO).orElse(null);
     }
 
+    @Transactional(readOnly = true)
+    public List<OrderDetailDTO> findEachOrder(String cid) {
+        return orderDetailDAO.findEach(cid).map(Converter::<OrderDetailDTO>getDTOList).get();
+    }
 }
