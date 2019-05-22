@@ -10,7 +10,7 @@
 # 1 ). Clone Project
 # ---> git clone https://github.com/DilrukshiRajapakshe/PAF-Ecommerce.git
 # 2 ). Open each project using Intellij IDE (First run Payment service)
-# 3 ). In wright side IDE have a Edit configuration button clike and you see a Run/Debug configuration Dialog box is open,
+# 3 ). In right side IDE have a Edit configuration button clike and you see a Run/Debug configuration Dialog box is open,
 #      press + sing add sprint boot and chhose a main thread class and given an name and apply it. and press ok button run Eash service one by one
 
  
