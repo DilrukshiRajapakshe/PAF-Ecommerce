@@ -75,65 +75,6 @@
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <!-- /Menu Toogle -->
-                    </div>
-                </div>
-                <!-- /ACCOUNT -->
-            </div>
-            <!-- row -->
-        </div>
-        <!-- container -->
-    </div>
-    <!-- /MAIN HEADER -->
-</header>
-<!-- /HEADER -->
-
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Hot Deals</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="#">Accessories</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
-
-<!-- SECTION -->
-
-<!-- SECTION -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-
-            <!-- section title -->
-            <div class="col-md-12">
-                <div class="section-title">
-                    <h3 class="title">New Products</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-                        </ul>
-=======
                     </div>
                     <!-- /LOGO -->
 
@@ -145,7 +86,6 @@
                                 <button class="search-btn">Search</button>
                             </form>
                         </div>
->>>>>>> 83f162a47b877a66171e9a2303cebfd3e1af782c
                     </div>
                     <!-- /SEARCH BAR -->
 
@@ -249,8 +189,6 @@
     </nav>
     <!-- /NAVIGATION -->
 
-
-
     <!-- SECTION -->
     <div class="section">
         <!-- container -->
@@ -266,46 +204,54 @@
                 </div>
                 <!-- /section title -->
 
-                <!-- Products tab & slick -->
-                <div class="col-md-12">
-                    <ul class="row" id="viewStock">
-                        <!-- product -->
-                        <li class="product col-lg-3 col-sm-6" style="margin: 40px;">
-                            <div class="product-img">
-                                <img id="image" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name" id="Pname"> </h3>
-                                <h4 class="product-price" id="price"></h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                            class="tooltipp">add to wishlist</span></button>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart
-                                </button>
-                            </div>
-                        </li>
-                        <!-- /product -->
-                    </ul>
-                </div>
-                <!-- Products tab & slick -->
+                <!-- Form -->
+                <form role="form">
+                    <div class="box-body">
+                        <div class="form-group" style="text-align: center" >
+                            <img src="image.png" id="img-preview" style="width: 200px; height: 125px;" />
+                            <label class="file-upload-container" for="file-upload">
+                                <input id="file-upload" type="file" style="display:none;"></br>
+                                <span class="text-muted">Select an Image</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Customer ID</label>
+                            <input type="text" class="form-control" id="txtCustomerId" placeholder="Enter Customer ID">
+                        </div>
+                        <div class="form-group">
+                            <label>Customer Name</label>
+                            <input type="text" class="form-control" id="txtCustomerName"
+                                placeholder="Enter Customer Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCustomerAddress">Customer Address</label>
+                            <input type="text" class="form-control" id="txtCustomerAddress"
+                                placeholder="Enter Customer Address">
+                        </div>
+                        <div class="form-group">
+                            <label>Customer Email</label>
+                            <input type="text" class="form-control" id="txtCustomerEmail"
+                                placeholder="Enter Customer Email">
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer" style="text-align: left">
+                        <button type="button" class="btn btn-primary" id="btnSave"
+                            style="margin-left:100px">ADD</button>
+                        <button type="reset" class="btn btn-primary" style="margin-left:30px">Clear</button>
+                    </div>
+                </form>
+
+                <!-- Form -->
             </div>
             <!-- /row -->
         </div>
         <!-- /container -->
     </div>
     <!-- /SECTION -->
+
 
 
     <!-- FOOTER -->
