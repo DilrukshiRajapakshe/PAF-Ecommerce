@@ -1,4 +1,4 @@
-package com.example.springbootzuulgatwayproxy.filters;
+package com.sliit.paf.zullrouting.filters;
 
 import com.netflix.zuul.ZuulFilter;
 

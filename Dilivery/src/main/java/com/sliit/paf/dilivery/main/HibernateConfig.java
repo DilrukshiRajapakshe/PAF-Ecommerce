@@ -1,10 +1,9 @@
-package com.sliit.paf.payment.main;
+package com.sliit.paf.dilivery.main;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -12,10 +11,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 @EnableTransactionManagement
@@ -46,7 +41,7 @@ public class HibernateConfig {
     public LocalSessionFactoryBean getSessionFactory(DataSource dataSource) {            // creating session factory
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan(new String[]{"com.sliit.paf.payment"});
+        sessionFactory.setPackagesToScan(new String[]{"com.sliit.paf.dilivery"});
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         System.out.println("## sessionFactory: " + sessionFactory);

@@ -5,8 +5,6 @@ import javax.persistence.*;
 @Entity
 public class OrderDetail extends SuperEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private String orderId;
     private String itemCode;
     private int qty;

@@ -10,9 +10,9 @@ import javax.persistence.Id;
 @Entity
 public class delivary  extends SuperEntity {
     @Id
-    private int delivary_id;
-    private int user_id;
-    private int bill_id;
+    private String delivary_id;
+    private String user_id;
+    private String bill_id;
     private String receive_date;
     private String reveive_person;
     private String fromTo;
@@ -23,7 +23,7 @@ public class delivary  extends SuperEntity {
 
     }
 
-    public delivary( int delivary_id,int user_id, int bill_id, String receive_date, String reveive_person, String fromTo, String date) {
+    public delivary( String delivary_id,String user_id, String bill_id, String receive_date, String reveive_person, String fromTo, String date) {
         this.user_id = user_id;
         this.delivary_id = delivary_id;
         this.bill_id = bill_id;
@@ -33,27 +33,27 @@ public class delivary  extends SuperEntity {
         this.date = date;
     }
 
-    public int getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
-    public int getDelivary_id() {
+    public String getDelivary_id() {
         return delivary_id;
     }
 
-    public void setDelivary_id(int delivary_id) {
+    public void setDelivary_id(String delivary_id) {
         this.delivary_id = delivary_id;
     }
 
-    public int getBill_id() {
+    public String getBill_id() {
         return bill_id;
     }
 
-    public void setBill_id(int bill_id) {
+    public void setBill_id(String bill_id) {
         this.bill_id = bill_id;
     }
 
@@ -91,14 +91,14 @@ public class delivary  extends SuperEntity {
 
     @Override
     public String toString() {
-        return "delivaryDTO{" +
-                "user_id='" + user_id + '\'' +
+        return "delivary{" +
                 "delivary_id='" + delivary_id + '\'' +
-                "bill_id='" + bill_id + '\'' +
-                "receive_date='" + receive_date + '\'' +
-                "reveive_person='" + reveive_person + '\'' +
-                "fromTo='" + fromTo + '\'' +
-                "date='" + date + '\'' +
+                ", user_id='" + user_id + '\'' +
+                ", bill_id='" + bill_id + '\'' +
+                ", receive_date='" + receive_date + '\'' +
+                ", reveive_person='" + reveive_person + '\'' +
+                ", fromTo='" + fromTo + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

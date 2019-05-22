@@ -29,13 +29,13 @@ public class OrderController {
         return new ResponseEntity<List<OrderDetailDTO>>(orders,httpHeaders, HttpStatus.OK);
     }
 
-    @GetMapping("/{id:}")
+    @GetMapping("/{id:O\\d{3}}")
     public OrderDetailDTO findOrders(@PathVariable("id") String cId){
         OrderDetailDTO orderDetail = manageOrderService.findOrderDetail(cId);
         return orderDetail;
     }
 
-    @DeleteMapping("/{id:}")
+    @DeleteMapping("/{id:O\\d{3}}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteOrders(@PathVariable("id") String cId){
         manageOrderService.deleteOrderDetail(cId);
@@ -44,11 +44,12 @@ public class OrderController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public String saveOrders(@RequestBody OrderDetailDTO orderDetailDTO){
+        System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
         manageOrderService.createOrderDetail(orderDetailDTO);
         return orderDetailDTO.getOrderId();
     }
 
-    @PutMapping(value = "/{id:}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id:O\\d{3}}",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateOrders(@PathVariable("id") String cId, @RequestBody OrderDetailDTO orderDetailDTO){
         if (cId.equals(orderDetailDTO.getOrderId())){
             manageOrderService.updateOrderDetail(orderDetailDTO);
@@ -57,16 +58,5 @@ public class OrderController {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
-
-    @GetMapping("/{id:O\\d{3}}")
-    public ResponseEntity<List<OrderDetailDTO>> findpaymentForEachPerson(@PathVariable("id") String cId){
-        System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
-        List<OrderDetailDTO> orderDetailDTOS = manageOrderService.findEachOrder(cId);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("X-Count",orderDetailDTOS.size() + "");
-        System.out.println(orderDetailDTOS);
-        return new ResponseEntity<List<OrderDetailDTO>>(orderDetailDTOS,httpHeaders, HttpStatus.OK);
-    }
-
 
 }

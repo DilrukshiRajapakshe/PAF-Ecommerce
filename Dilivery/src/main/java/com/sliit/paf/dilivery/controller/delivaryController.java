@@ -29,6 +29,7 @@ public class delivaryController {
 
     @GetMapping("/{id:D\\d{3}}")
     public delivaryDTO finddelivary(@PathVariable("id") String cId){
+        System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
         delivaryDTO delivary = delivaryService.finddelivary(cId);
         return delivary;
     }
@@ -41,7 +42,7 @@ public class delivaryController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public int savedelivary(@RequestBody delivaryDTO delivaryDTO){
+    public String savedelivary(@RequestBody delivaryDTO delivaryDTO){
         delivaryService.createdelivary(delivaryDTO);
         return delivaryDTO.getDelivary_id();
     }
