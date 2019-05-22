@@ -1,4 +1,7 @@
 package com.sliit.paf.registation.repositroy.custom;
 
-public interface userRepositroy {
+import com.sliit.paf.registation.entity.User;
+import com.sliit.paf.registation.repositroy.CrudRepository;
+
+public interface userRepositroy extends CrudRepository<User, String> {
 }

@@ -17,13 +17,13 @@ public class Converter {
     public static <T extends SuperDTO> T getDTO(SuperEntity entity) {
         if (entity instanceof Admin) {
             Admin p = (Admin) entity;
-            return (T) new Admindto();
+            return (T) new Admindto(p.getUserID(), p.getUserName(),p.getEmail());
         }else if (entity instanceof Customer) {
             Customer o = (Customer) entity;
-            return (T) new Customerdto();
+            return (T) new Customerdto(o.getUserID(),o.getUserName(),o.getUserAddress(),o.getPhone(),o.getCreditCardInfo());
         }else if (entity instanceof User) {
             User o = (User) entity;
-            return (T) new Userdto();
+            return (T) new Userdto(o.getUserID(),o.getPassword(),o.getLoginStatues());
         }else {
             throw new RuntimeException("This entity can't be converted to a DTO");
         }
@@ -32,13 +32,13 @@ public class Converter {
     public static <T extends SuperEntity> T getEntity(SuperDTO dto) {
         if (dto instanceof Userdto) {
             Userdto p = (Userdto) dto;
-            return (T) new User();
+            return (T) new User(p.getUserID(),p.getPassword(),p.getLoginStatues());
         }else if (dto instanceof Customerdto) {
             Customerdto o = (Customerdto) dto;
-            return (T) new Customer();
+            return (T) new Customer(o.getUserID(),o.getUserName(),o.getUserAddress(),o.getPhone(),o.getCreditCardInfo());
         }else if (dto instanceof Admindto) {
             Admindto o = (Admindto) dto;
-            return (T) new Admin();
+            return (T) new Admin(o.getUserID(),o.getUserName(),o.getEmail());
         }else {
             throw new RuntimeException("This DTO can't be converted to an entity");
         }
