@@ -368,14 +368,45 @@
     <script src="js/main.js" type="4577dc33123544efd278e610-text/javascript"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
         type="4577dc33123544efd278e610-text/javascript"></script>
-    <script type="4577dc33123544efd278e610-text/javascript">
+    <script type="4577dc33123544efd278e610-text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.map"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.map"></script>
+    
+<script>
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
 
+  var cloud_URL = "https://api.cloudinary.com/v1_1/sewwandi/image/upload";
+  var  cloud_uploder_Key ="ln4ub25f";
+  var uplodURL;
+  $("#file-upload").on("change",function (e) {
+      console.log("asssf")
+      var f =e.target.files[0];
+      var formatData = new FormData();
+      formatData.append('file',f);
+      formatData.append('upload_preset',cloud_uploder_Key);
+      axios({
+          url:cloud_URL,
+          method:"POST",
+          headers :{
+              'Content-Type':'application/x-www-form-urlencoded'
+          },
+          data:formatData
+      }).then(function (res) {
+          console.log(res);
+          uplodURL = res.data.secure_url;
+          $("#img-preview").attr("src",uplodURL);
+      }).catch(function (err) {
+          console.log(err);
+      });
 
+  });
 </script>
 
     <script src="rocket-loader.min.js" data-cf-settings="4577dc33123544efd278e610-|49" defer=""></script>
