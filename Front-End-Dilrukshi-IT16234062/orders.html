@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Point Of Sales | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>P</b>OS</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Point Of Sales</b>POS</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <!--div tag in side bar-->
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <section class="sidebar">
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">MAIN NAVIGATION</li>
+          <li>
+            <a href="index.html">
+              <i class="fa fa-fw fa-dashboard"></i> <span> Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="customer.html">
+              <i class="fa fa-fw fa-user"></i> <span> New Customer</span>
+
+            </a>
+          </li>
+          <li>
+            <a href="items.html">
+              <i class="fa fa-fw fa-list-alt"></i> <span> New Item</span>
+
+            </a>
+          </li>
+
+          <li class="active treeview">
+            <a href="orders.html">
+              <i class="fa fa-fw fa-file-text-o"></i>
+              <span>New Orders</span>
+            </a>
+          </li>
+          <li>
+            <a href="ordersDetaial.html">
+              <i class="fa fa-fw fa-file-o"></i>
+              <span>Order Details</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-4">
+            <!-- general form elements -->
+            <!--1-->
+            <div class="box box-primary">
+              <div class="row" style="margin: 20px">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Order ID :</label>
+                    <input id="lblOrderId">
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label>Order Date :</label>
+                    <label id="lblOrderDate"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--2-->
+            <div class="box box-primary">
+              <div class="row" style="margin: 20px">
+                <div class="row">
+                  <div class="form-group">
+                    <label>Customer ID :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <select class="form-control select2" style="width: 100%;" id="cmbCutomerID">
+                      <option selected disabled hidden value="">Select Customer ID</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label>Customer Name :</label>
+                    <label id="lblCustomerName"> </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--3-->
+            <div class="box box-primary">
+              <div class="row" style="margin: 20px">
+                <div class="row">
+                  <div class="form-group">
+                    <label> Item Code :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <select class="form-control select2" style="width: 100%;" id="cmbItemCode">
+                      <option selected disabled hidden value="">Select Item Code</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label>Item Name :</label>
+                    <label id="lblItemName"></label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label>Unite Price :</label>
+                    <label id="lblPrice"></label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label>Qty On Hand:</label>
+                    <label id="lblOnQty"></label>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="form-group">
+                    <div class="clearfix">
+                      <label style="float: left; width: 30%">Order Qty :</label>
+                      <input style="float: right; width: 70%" type="text" class="form-control" id="qty"
+                        placeholder="Enter Qty">
+                    </div>
+                  </div>
+                </div>
+                <div class="row " style="text-align:center">
+                  <div class="form-group">
+                    <button type="button" id="btnAddCart" class="btn btn-warning"><i
+                        class="fa fa-fw fa-cart-arrow-down"></i>Add To Cart</button>
+                    <button type="reset" class="btn btn-info">Clear</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Order Information</h3>
+              </div>
+              <div class="box-body">
+                <table id="tblOrderDetailsTbody" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Qty On Hand</th>
+                      <th>Total</th>
+                      <th>Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>Code</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Qty On Hand</th>
+                      <th>Total</th>
+                      <th>Remove</th>
+                    </tr>
+                  </tfoot>
+                </table>
+                <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-bottom: 5px">Place
+                  Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+      <!-- Default to the left -->
+      <p style="text-align: center"><strong>Copyright &copy; DEP 2019</strong> | dilrukshi.rajapakshe@gmial.com</p>
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery 3 -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button);
+  </script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- Bootstrap WYSIHTML5 -->
+  <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+  <!-- Slimscroll -->
+  <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="bower_components/fastclick/lib/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- DataTables -->
+  <script src="dist/js/jquery.dataTables.min.js"></script>
+  <script src="dist/js/dataTables.bootstrap.min.js"></script>
+  <script>
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    $("#lblOrderDate").text(today);
+
+    //
+    $("#cmbCutomerID").change(function () {
+      var customerId = $(this).val();
+      if (!customerId) {
+        customerName = "SELECT CUSTOMER ID";
+      } else {
+        var ajaxConfig = {
+          method: "GET",
+          url: "http://localhost:8050/registration-eureka-server/api/v1/customer/" + customerId,
+          async: true,
+          contentType: "application/x-www-form-urlencoded",
+          data: $("form").serialize()
+        };
+        $.ajax(ajaxConfig).done(function (responseText, statusText, jxhr) {
+          $("#lblCustomerName").text(responseText.userName);
+        }).fail(function (jxhr, statusText, error) {
+          console.log("Error");
+        });
+
+      }
+
+    });
+    function loadCustomerID() {
+      var ajaxConfig = {
+        method: "GET",
+        url: "http://localhost:8050/registration-eureka-server/api/v1/customer/",
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        data: $("form").serialize()
+      };
+      $.ajax(ajaxConfig).done(function (responseText, statusText, jxhr) {
+        console.log(responseText);
+        for (let i = 0; i < responseText.length; i++) {
+          $("#cmbCutomerID").append("<option>" + responseText[i].userID + "</option>");
+        }
+      }).fail(function (jxhr, statusText, error) {
+        console.log("Error");
+      });
+    }
+    loadCustomerID();
+
+
+
+
+    $("#cmbItemCode").change(function () {
+      var itemCord = $(this).val();
+      if (!itemCord) {
+        itemCord = "SELECT Item code";
+      } else {
+        var ajaxConfig1 = {
+          method: "GET",
+          url: "http://localhost:8050/Stock-Item-eureka-server/api/vi/stock/" + itemCord,
+          async: true,
+          contentType: "application/x-www-form-urlencoded",
+          data: $("form").serialize()
+        };
+        $.ajax(ajaxConfig1).done(function (responseText, statusText, jxhr) {//
+          $("#lblItemName").text(responseText.description);
+          $("#lblPrice").text(responseText.unitPrice);
+          $("#lblOnQty").text(responseText.qtyOnHand);
+
+        }).fail(function (jxhr, statusText, error) {
+          console.log("Error");
+        });
+
+      }
+
+    });
+    function loadItemID() {
+      var ajaxConfig1 = {
+        method: "GET",
+        url: "http://localhost:8050/Stock-Item-eureka-server/api/vi/stock",
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        data: $("form").serialize()
+      };
+      $.ajax(ajaxConfig1).done(function (responseText, statusText, jxhr) {
+        console.log(responseText);
+        for (let i = 0; i < responseText.length; i++) {
+          $("#cmbItemCode").append("<option>" + responseText[i].code + "</option>");
+        }
+      }).fail(function (jxhr, statusText, error) {
+        console.log("Error");
+      });
+    }
+    loadItemID();
+
+    $("#btnAddCart").click(function () {
+      var f = addToCardeValidation1();
+      var g = addToCardeValidation2();
+      var h = addToCardeValidation3();
+      $("#btnPlaceOrder").prop('disabled', false);
+
+      var result1 = $("#cmbItemCode").val();
+      var Onqty = $("#qty").val();
+      var item = $("#lblItemName").text();
+      var price = $("#lblPrice").text();
+      var qty = $("#lblOnQty").text();
+
+      var buttonText = $('#btnAddCart').text();
+      var c = "  Add to Cart";
+      var d = "  Update to Cart"
+
+      console.log(buttonText);
+      var tot = price * Onqty;
+              $("#tblOrderDetailsTbody").append("<tr><td id='Iid'>" + result1 +
+                "</td><td>" + item +
+                "</td><td>" + price +
+                "</td><td>" + Onqty +
+                "</td><td>" + tot +
+                "</td><td><button type='button' class='btn btn-danger'>Remove</button></td></tr>");
+
+    $("#tblOrderDetailsTbody tbody tr").off("click");
+    $("#tblOrderDetailsTbody tbody tr").click(function () {
+      console.log("sdffdg");
+      console.log($(this).find("td:first-child").text());
+
+    });
+    
+      var order = {
+        orderId: $("#lblOrderId").val(),
+        itemCode: $("#cmbItemCode").val(),
+        qty: $("#qty").val(),
+        unitPrice: $("#lblPrice").text()
+      };
+console.log(order);
+      var ajaxConfig = {
+        method: "POST",
+        url: "http://localhost:8050/payment-cart-eureka-server/api/v1/order",
+        async: true,
+        contentType: "application/json",
+        data: JSON.stringify(order)
+      }
+
+      $.ajax(ajaxConfig).done(function(response,statusText,jxhr){
+        alert("Added Successfully");
+      }).fail(function(jxhr,statusText,error){
+        alert("Unable to save, try again");
+        console.log(error);
+      });
+    });
+
+    function addToCardeValidation1() {
+      var cu = $("#cmbCutomerID").text();
+      if (!cu) {
+        return false;
+      }
+      return true;
+    }
+    function addToCardeValidation2() {
+      var it = $("#cmbItemCode").text();
+      if (!it) {
+        return false;
+      }
+      return true;
+    }
+
+    function addToCardeValidation3() {
+      var exp = /^[0-9]+$/;
+
+      if (!exp.test($("#txtQty").val())) {
+        return false;
+      }
+      return true;
+    }
+
+   
+
+
+    $(function () {
+      $('#orderTable').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': true,
+        'ordering': true,
+        'info': true,
+        'autoWidth': true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: "Search Orders..."
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>
