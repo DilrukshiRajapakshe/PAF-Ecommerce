@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/DmsChrisPena/cloudinary-image-upload#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.14.1",
     "mustache-express": "^1.2.4",
     "nodemon": "^1.11.0",
